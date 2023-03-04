@@ -6,8 +6,19 @@ import { FormAdd } from "./components/FormAdd";
 import { useBlockchain, useForm } from "./hooks/index";
 
 export const App = () => {
-  const { data, crearGenesis, agregarBloque, leng } = useBlockchain();
+  const {
+    data,
+    crearGenesis,
+    agregarBloque,
+    leng,
+    updateDifficulty,
+    difficulty,
+  } = useBlockchain();
   const { newData, handleInputChange, reset } = useForm();
+
+  const handleChangeDifi = (value) => {
+    updateDifficulty(value);
+  }
 
   return (
     <>
@@ -29,8 +40,19 @@ export const App = () => {
               leng={leng}
             />
           </div>
-          <div className="row container-fluid mt-5">
+          <div className="row container-fluid ">
             <AnimationHome />
+            <div className="row">
+              <div className="col-3">
+                <span className="titles">Difficulty:</span>
+                <input
+                  className="form-control shadow-sm form-control-my"
+                  value={difficulty}
+                  type="text"
+                  onChange={ (e) => e.target.value = handleChangeDifi(e.target.value) }
+                />
+              </div>
+            </div>
           </div>
         </div>
         <div className="col-7 container-fluid container-my mx-auto hiddenScroll">

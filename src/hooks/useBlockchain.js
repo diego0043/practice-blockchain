@@ -35,7 +35,7 @@ export const useBlockchain = () => {
   };
 
   const agregarBloque = (payload) => {
-    console.log(payload)
+    console.log(payload);
     const previus = data[data.length - 1];
     const block = crearBloque(payload, previus.hash);
     const blockMined = minedBlock(block, difficulty);
@@ -78,5 +78,7 @@ export const useBlockchain = () => {
     agregarBloque,
     isLoading,
     leng: data.length,
+    updateDifficulty,
+    difficulty
   };
 };
