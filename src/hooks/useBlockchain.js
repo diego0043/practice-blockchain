@@ -35,7 +35,6 @@ export const useBlockchain = () => {
   };
 
   const agregarBloque = (payload) => {
-    console.log(payload);
     const previus = data[data.length - 1];
     const block = crearBloque(payload, previus.hash);
     const blockMined = minedBlock(block, difficulty);
@@ -56,7 +55,7 @@ export const useBlockchain = () => {
     setDifficulty(newDifficulty);
   };
 
-  const validateChain = () => {
+  /* const validateChain = () => {
     data.map((block, index) => {
       let prevBlock = data[index - 1];
       let currentBlock = data[index];
@@ -70,7 +69,7 @@ export const useBlockchain = () => {
     });
 
     return true;
-  };
+  }; */
 
   return {
     data,

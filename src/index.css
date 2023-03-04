@@ -11,29 +11,36 @@
 
 .container-my {
   overflow-y: scroll;
-  height: 100vh;
-  margin-top: 30px;
+  height: 95vh;
+  margin-top: 10px !important;
   width: 100%;
   margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+/* Para el scrollbar en general */
+.hiddenScroll::-webkit-scrollbar {
+  background-color: #f5f5f5; /* Color de fondo */
+  width: 10px; /* Ancho del scrollbar */
+}
+
+/* Para el track (fondo) del scrollbar */
+.hiddenScroll::-webkit-scrollbar-track {
+  background-color: #f5f5f5; /* Color de fondo */
+}
+
+/* Para el thumb (barra) del scrollbar */
+.hiddenScroll::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Color de la barra */
+  border-radius: 5px; /* Radio de las esquinas */
 }
 
 .card-title-my {
-  overflow-x: scroll;
+  overflow-x: hidden;
   margin-bottom: 10px;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-::-webkit-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
 
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
 
 .index {
   display: inline-block;

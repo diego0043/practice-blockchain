@@ -64,12 +64,22 @@ export const ContainerButtons = ({
             Start chain
           </button>
         )}
-        <button
-          onClick={() => validatePayload()}
-          className="btn-my-secondary shadow-sm"
-        >
-          Add new block
-        </button>
+        {leng > 0 ? (
+          <button
+            onClick={() => validatePayload()}
+            className="btn-my-secondary shadow-sm"
+          >
+            Add new block
+          </button>
+        ) : (
+          <button
+            onClick={() => validatePayload()}
+            className="btn-my-secondary shadow-sm"
+            disabled
+          >
+            Add new block
+          </button>
+        )}
       </div>
     </>
   );

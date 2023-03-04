@@ -4,8 +4,14 @@ import { CardBlock } from "./components/CardBlock";
 import { ContainerButtons } from "./components/ContainerButtons";
 import { FormAdd } from "./components/FormAdd";
 import { useBlockchain, useForm } from "./hooks/index";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import img from "./assets/img_limit.png";
+
+
 
 export const App = () => {
+  
   const {
     data,
     crearGenesis,
@@ -15,9 +21,24 @@ export const App = () => {
     difficulty,
   } = useBlockchain();
   const { newData, handleInputChange, reset } = useForm();
+  const MySwal = withReactContent(Swal);
+
 
   const handleChangeDifi = (value) => {
-    updateDifficulty(value);
+    if (value.length >= 2 && value.length <= 4){
+      updateDifficulty(value);
+    }else{
+      MySwal.fire({
+        title: "Oops...",
+        text: "The difficulty must be between 2 and 4",
+        imageUrl: img,
+        imageWidth: 120,
+        imageHeight: 120,
+        imageAlt: "Custom image",
+        confirmButtonColor: "#40bb84",
+      });
+    }
+    
   }
 
   return (
@@ -43,7 +64,7 @@ export const App = () => {
           <div className="row container-fluid ">
             <AnimationHome />
             <div className="row">
-              <div className="col-3">
+              <div className="col-5">
                 <span className="titles">Difficulty:</span>
                 <input
                   className="form-control shadow-sm form-control-my"

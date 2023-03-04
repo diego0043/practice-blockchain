@@ -51,7 +51,7 @@ export const CardBlock = ({ block }) => {
         <div>
           <span className="index">{block.index}</span>
         </div>
-        <div className="card-title-my">
+        <div className="card-title-my noScroll">
           <span className="titles">Hash</span>
           <br />
           <div className="row"></div>
